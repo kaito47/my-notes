@@ -1,7 +1,8 @@
 // Dependencies
 // =============================================================
 const express = require('express');
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 // Express Configuration
 // =============================================================
@@ -11,6 +12,7 @@ app = express();
 
 // Code for hosting files in the 'public' directory
 app.use(express.static("public"));
+// app.use(express.static('public'));
 
 // Setting an initial port
 const PORT = process.env.port || 8070
@@ -24,22 +26,13 @@ app.use(express.json());
 // The below points our server to a series of "route" files.
 // ================================================================================
 
-// require("./apiRoutes")(app);
-require("./htmlRoutes")(app);
-
-// app.get("/notes", function (req, res) {
-//     res.sendFile(path.join(__dirname, "/notes"));
-// });
-
-// // If no matching route is found default to home
-// app.get("*", function (req, res) {
-//     res.sendFile(path.join(__dirname, "../../index.html"));
-// });
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app);
 
 
 // Listener
 app.listen(PORT, function () {
-    console.log("App listening on PORT: " + PORT);
+    console.log('App listening on PORT: ' + PORT);
 });
 
 
