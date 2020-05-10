@@ -4,7 +4,7 @@
 
 This application creates note-taking app. It allows the user to input a note name and title, save the note, reopen the note as necessary, and to delete the note if desired. Multiple notes can be created and deleted. The site is hosted on Heroku. 
 
-![deployedApplication]()
+![deployedApplication](https://github.com/kaito47/my-notes/blob/master/public/assets/images/mainscreen.png)
 
 ## Table of Contents
 * [Technologies](#technologies)
@@ -27,13 +27,13 @@ In order to install dependencies, use npm install.
 ## Usage
 
 To use this application, open the heroku link provided below. Click "Get Started". Users can click in the "New Note" field and input a note title, or they can click the pencil in the top right corner to start a new note:
-![noteTitle]()
+![noteTitle](https://github.com/kaito47/my-notes/blob/master/public/assets/images/title.png)
 
 Users can then click in the text box located below the title box to input their note text:
-![noteText]()
+![noteText](https://github.com/kaito47/my-notes/blob/master/public/assets/images/text.png)
 
 Notes are saved by clicking the floppy disc icon in the top right corner. Notes are saved in the left-hand column. Notes can be re-opened by clicking on the note name, and can be deleted by clicking the red garbage can:
-![saveOrdeleteNote]()
+![saveOrdeleteNote](https://github.com/kaito47/my-notes/blob/master/public/assets/images/save.png)
 
 ## License
 
