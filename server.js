@@ -15,7 +15,7 @@ app.use(express.static("public"));
 // app.use(express.static('public'));
 
 // Setting an initial port
-const PORT = process.env.port || 8070
+const PORT = process.env.port || 8090
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));

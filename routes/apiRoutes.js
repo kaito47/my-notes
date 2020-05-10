@@ -1,5 +1,6 @@
 // DEPENDENCIES
 const fs = require('fs');
+const dbJson = require('./db.json')
 
 
 // ROUTING
@@ -14,18 +15,19 @@ module.exports = function (app) {
             }
             console.log(db);
 
-            const savedNotes = json.parse(db);
-            res.JSON(savedNotes);
+            return res.json(db);
         });
     });
 
 
     // API POST Requests
     app.post('/api/notes', function (req, res) {
-
-
+        const newNote = req.body;
+        dbJson.push(newNote);
+        res.send(newNote);
     });
 
+    // API DELETE Requests
 
 };
 
