@@ -20,9 +20,9 @@ module.exports = function (app) {
     });
 
 
-
+    // API POST Requests
+    // For new note inputs:
     app.post('/api/notes', function (req, res) {
-        // create user in req.body
         let newNote = req.body;
         newNote.id = uuidv4();
         let newNoteArr = [];
@@ -42,8 +42,33 @@ module.exports = function (app) {
 
         });
 
-        // API DELETE Requests
+    });
+
+    // To delete a note by unique id:
+    app.delete('/api/notes/:id', function (req, res) {
+        let uniqueID = req.params.id
+        fs.readFile('./db/db.json', 'utf8', function (err, db) {
+            if (err) {
+                console.log(err)
+            }
+            let noteArr = JSON.parse(db);
+            for (let i = 0; i < noteArr.length; i++) {
+                if (uniqueID === noteArr[i].id) {
+                    noteArr.splice(i, 1);
+                    let newDbArr = JSON.stringify(noteArr);
+                    fs.writeFile('./db/db.json', newDbArr, function (err) {
+                        if (err) {
+                            console.log(err)
+                        }
+                        return res.json(dbJson);
+                    })
+
+                }
+            };
+
+        });
 
     });
+
 
 };
